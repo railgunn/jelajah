@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jelajah</title>
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link(pending) rel="stylesheet" href="styles.css"> 
+
+    <style>
+        /* Add CSS for responsive design */
+        body {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .page {
+            max-width: 100%;
+            height: auto;
+            opacity: 0; /* Initially hidden */
+            transform: translateY(20px); /* Move the image down by 20px */
+            transition: opacity 0.5s, transform 0.5s; /* Transition effect */
+        }
+
+        /* Style for the buttons */
+        .overlay {
+            position: absolute;
+            top: 1.5%; /* Adjust the value to move the buttons further down */
+            right: 10%;
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+            padding: 1%; /* Adjust padding as needed */
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            z-index: 1; /* Ensure buttons are on top */
+        }
+
+        .overlay button {
+            background-color: transparent;
+            border: none;
+            margin: 1%; /* Adjust margin as needed */
+            cursor: pointer;
+            font-size: 24px; /* Adjust the font size as needed */
+        }
+
+        /* Style for the Learn More button */
+.learn-more-button {
+    position: absolute;
+    bottom: 51.25%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.learn-more-button .button {
+    display: inline-block;
+    padding: 8px 70px;
+    background-color: transparent;
+    border: 2px solid black;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.learn-more-button .button:hover {
+    background-color: black;
+    color: white;
+}
+
+
+        /* Media query for responsiveness */
+        @media screen and (max-width: 768px) {
+            .overlay {
+                position: static;
+                background-color: transparent;
+                padding: 0;
+                border-radius: 0;
+                display: block;
+            }
+
+            .overlay button {
+                display: block;
+                margin: 1%; /* Adjust margin as needed */
+                padding: 2% 4%; /* Adjust padding as needed */
+                font-size: 30px; /* Adjust the font size as needed */
+            }
+
+            .page {
+                max-width: 100%;
+                height: auto;
+                opacity: 1; /* Show images immediately */
+                transform: translateY(0); /* No initial transformation */
+                transition: opacity 0.5s, transform 0.5s; /* Transition effect */
+            }
+        }
+
+        /* Animation when scrolling down */
+        .animate-on-scroll {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #bf7e6a; /* Dark background color for the footer */
+            color: white; /* White text color */
+            padding: 20px 0; /* Adjust padding as needed */
+        }
+
+        .footer a {
+            color: white; /* White link color */
+            text-decoration: none; /* Remove underlines from links */
+            margin: 0 10px; /* Adjust margin as needed */
+        }
+
+        /* Increase font size for FAQ */
+        .footer a#faq {
+            font-size: 28px; /* Adjust the font size as needed */
+        }
+
+
+
+        .search-container {
+        position: absolute;
+        top: 56.9%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        background-color: #f2f2f2; /* Background color */
+        border-radius: 24px; /* Rounded corners */
+        padding: 16px 16px; /* Adjust padding as needed */
+        width: 750px;
+    }
+
+    .search-container input[type="text"] {
+        border: none;
+        padding: 8px; /* Adjust padding as needed */
+        width: 100%; /* Take up all available space */
+        font-size: 18px;
+        background-color: #f2f2f2;
+        color: #333; /* Darker gray text color */
+    }
+
+    /* Style for the search icon button */
+    .search-container .search-button {
+        top: 52%;
+        background-color: #f2f2f2; /* Google's blue color */
+        color: black; /* Change icon color to black */
+        border: none;
+        border-radius: 24px;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 8px 16px; /* Adjust padding as needed */
+        margin-left: 8px; /* Adjust margin as needed */
+    }
+
+    .search-container .search-button:hover {
+        background-color: #c9c9c9; /* Darker blue on hover */
+    }
+
+    /* Add CSS to make the search bar responsive */
+    @media screen and (max-width: 768px) {
+        .search-container {
+            width: 80%; /* Adjust the width as needed */
+        }
+    }
+
+ /* Style for the jakarta button */
+    .custom-button {
+        position: absolute;
+    top: 61%; /* Adjust the position as needed */
+    left: 20%;
+        background-color: #f2f2f2; /* Same color as search bar */
+        color: #545454; /* Text color */
+        border: none;
+        border-radius: 24px;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 8px 56px; /* Adjust padding as needed */
+        margin-left: 8px; /* Adjust margin as needed */
+    }
+
+    .custom-button:hover {
+        background-color: #d9d9d9; /* Darker blue on hover */
+    }
+
+/* Style for the image button container */
+.image-button-container {
+    position: absolute;
+    top: 35%; /* Adjust the position as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex; /* Use flexbox to align images horizontally */
+    justify-content: center; /* Center items horizontally */
+    width: 70%; /* Set width as a percentage */
+}
+
+/* Style for the image button */
+.image-button {
+    cursor: pointer;
+    padding: 1px;
+    display: block;
+    border: none;
+    background: none;
+    margin: 0 10px; /* Add margin between images */
+}
+
+/* Style for the selected image */
+#selected-image1,
+#selected-image2,
+#selected-image3{
+    width: 100%; /* Set width to 100% of the container */
+    max-width: 307px; /* Set maximum width */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto;
+}
+.workshop-image {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Move the image down by 20px */
+    transition: opacity 0.5s, transform 0.5s; /* Transition effect */
+}
+
+
+    </style>
+    
+</head>
+<body>
+    <div class="overlay">
+        <button onclick="redirectToLogin()">Login</button>
+        <button onclick="redirectToWorkshop()">Workshops</button>
+        <button onclick="redirectToCart()">Cart</button>
+    </div>
+    
+    <!-- Page 1 -->
+    <img src="Page 1.png" alt="Page 1" class="page animate-on-scroll">
+    
+    <!-- Page 2 -->
+    <img src="Page 2.png" alt="Page 2" class="page animate-on-scroll">
+    
+    <!-- Page 3 -->
+    <img src="workshop blank.jpg" alt="Page 3" class="page">
+ <!-- Page 3 Image Button Container -->
+<div class="image-button-container">
+    <div class="image-button">
+        <img src="workshop1.jpg" id="selected-image1" alt="Workshop 1" >
+    </div>
+    <div class="image-button">
+        <img src="workshop2.jpg" id="selected-image2" alt="Workshop 2">
+    </div>
+    <div class="image-button">
+        <img src="workshop3.jpg" id="selected-image3" alt="Workshop 3">
+    </div>
+</div>
+    
+
+
+    <!-- Page 4 -->
+    <img src="Page 4.png" alt="Page 4" class="page">
+    <button class="custom-button">Jakarta</button>
+    
+    <!-- Page 5 -->
+    <img src="Page 5.png" alt="Page 5" class="page">
+    
+    <!-- Page 6 -->
+    <img src="Page 6.png" alt="Page 6" class="page">
+    
+    <!-- Page 3 Learn More Button -->
+    <div class="learn-more-button">
+        <a href="#learn-more-section" class="button">Learn More</a>
+    </div>  
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="destination" placeholder="Search for Destination...">
+        <button class="search-button" onclick="searchDestination()"><i class="fas fa-search"></i></button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <a id="faq" href="#">FAQ</a><br><br>
+        <a href="#">Email</a><br><br>
+        <a href="#">General</a><br><br>
+        <a href="workshop-page.html">Workshop</a><br><br>
+        <a href="#">Travel</a>
+    </footer>
+
+    <script>
+        // JavaScript to add the class when at least half of the image is in the viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            // Check if at least half of the image is visible
+            return (
+                rect.bottom >= windowHeight / 2 &&
+                rect.top <= windowHeight / 2
+            );
+        }
+
+        const pages = document.querySelectorAll(".page");
+
+        function checkVisibility() {
+            pages.forEach(page => {
+                if (isElementInViewport(page) && !page.classList.contains("animate-on-scroll")) {
+                    page.classList.add("animate-on-scroll");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", checkVisibility);
+    </script>
+    <script>
+    function searchDestination() {
+        const destination = document.getElementById("destination").value;
+        // You can implement your search logic here, e.g., redirect to search results page or display results on the same page.
+        alert("Searching for: " + destination);
+    }
+    </script>
+    <script>
+        function redirectToLogin() {
+            // Redirect to the login page (change "login.html" to your actual login page filename)
+            window.location.href = "login.html";
+        }
+        function redirectToWorkshop() {
+            window.location.href = "workshop-page.html";
+        }
+
+        function redirectToCart() {
+            window.location.href = "checkout.html";
+        }
+        // JavaScript to handle image button click and redirection
+        document.querySelectorAll(".image-button").forEach(function(button) {
+    button.addEventListener("click", function () {
+        // Redirect to another HTML file within your project (replace "checkout.html" with the actual filename)
+        window.location.href = "checkout.html";
+    });
+});
+
+    </script>
+    
+</body>
+</html>

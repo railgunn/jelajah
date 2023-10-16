@@ -1,0 +1,154 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Workshop Page</title>
+        <link rel="stylesheet" href="workshop-page-style.css">
+    </head>
+    <body>
+        <!--Header starts-->
+        <div class="header">
+            <h1>Join a Workshop</h1>
+            <p>Find and Book the Workshop you wanted from your chosen city to<br>experience the culture</p>
+        </div>
+        <!--Header ends-->
+
+        <!--Crafting workshops starts-->
+        <div class="container">
+            <div>
+                <h1>Crafting</h1>
+            </div>
+
+            <div class="craft">
+                <div class="craft-item">
+                    <button onclick="redirectToCart()" class="button-craft" type="button">
+                        <img id = "pottery" alt = "pottery-workshop" src="img/pottery2.jpg">
+                        <div class= "label" > 
+                            <div class = "label-pottery">
+                                <h1 >   Pottery Workshop</h1>
+                                <div class="desc">
+                                    <p>
+                                        <span class="left-content">Pick your date<br>Rp 300,000</span>
+                                        <span class="right-content"><br>Jogja</span>
+                                    </p>
+                                </div>  
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="craft-item">
+                    <button onclick="redirectToCart()" class="button-craft" type="button">
+                        <img id = "jewelry" alt = "jewelry-workshop" src="img/jewelry.jpg">
+                            <div class= "label" > 
+                                <div class = "label-pottery">
+                                    <h1 >   Silver jewelry-making Workshop</h1>
+                                        <div class="desc">
+                                            <p>
+                                                <span class="left-content">02 May 2023<br>Rp 300,000</span>
+                                                <span class="right-content"><br>Bali</span>
+                                            </p>
+                                        </div>
+                                </div>
+                            </div>
+                    </button>
+
+                </div>
+                <div class="craft-item">
+                    <button onclick="redirectToCart()"  class="button-craft" type="button">
+                        <img id = "batik"  alt = "batik-workshop" src="img/batik2.jpg">
+                            <div class= "label" > 
+                                <div class = "label-pottery">
+                                    <h1 > Batik Workshop</h1>
+                                    <div class="desc">
+                                        <p>
+                                            <span class="left-content">05 May 2023<br>Rp 300,000</span>
+                                            <span class="right-content"><br>Solo</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!--Crafting workshops ends-->
+
+        <!--Cooking workshops starts-->
+        <div class="container">
+            <div>
+                <h1>Cooking</h1>
+            </div>
+            <div class="cook">
+                <div class="cook-item">
+                    <button onclick="redirectToCart()"  class="button-cook" type="button">
+                        <img id = "nasi" alt = "gudeg-workshop" src="img/gudeg.jpg">
+                            <div class= "label" > 
+                                <div class = "label-pottery">
+                                    <h1 > Gudeg</h1>
+                                    <div class="desc">
+                                        <p>
+                                            <span class="left-content">Pick your date<br>Rp 200,000</span>
+                                            <span class="right-content"><br>Jogja</span>
+                                        </p>
+                                    </div>     
+                                </div>
+                            </div>
+                    </button>
+                </div>
+                <div class="cook-item">
+                    <button onclick="redirectToCart()" class="button-cook" type="button">
+                        <img id = "bawang"  alt = "Sambal-workshop" src="img/matah.jpg">
+                        <div class= "label" > 
+                            <div class = "label-pottery">
+                                <h1 > Sambal Matah</h1>
+                                <div class="desc">
+                                    <p>
+                                        <span class="left-content">02 May 2023<br>Rp 300,000</span>
+                                        <span class="right-content"><br>Bali</span>
+                                    </p>
+                                </div>    
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                <div class="cook-item">
+                    <button onclick="redirectToCart()"  class="button-cook" type="button">
+                        <img id = "nasi-kuning" alt = "nasi-workshop" src="img/nasikuning2.jpg">
+                        <div class= "label" > 
+                            <div class = "label-pottery">
+                                <h1 > Nasi Kuning</h1>
+                                <div class="desc">
+                                    <p>
+                                        <span class="left-content">03 May 2023<br>Rp 200,000</span>
+                                        <span class="right-content"><br>Bali</span>
+                                    </p>
+                                </div>    
+                            </div>
+                        </div>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        <!--Cooking workshops ends-->
+
+        <!--Footer starts-->
+        <div class = "footer">
+                <h1>Explore More</h1>
+                <img class="footer-img"  alt = "explore" src="img/footer.png">
+        </div>
+        <!--Footer ends-->
+    </body>
+
+<script>
+
+function redirectToCart() {
+            window.location.href = "checkout.html";
+        }
+
+</script>
+
+    
+    </html>
